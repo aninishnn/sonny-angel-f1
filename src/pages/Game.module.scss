@@ -1,0 +1,270 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-5;
+  position: relative;
+}
+
+.startOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$sp-5;
+}
+
+.overlayMeta {
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: v.$fs-300;
+  color: var(--text-muted);
+}
+
+.headerBar {
+  text-align: center;
+}
+
+.raceTitle {
+  font-size: v.$fs-500;
+}
+
+.raceSubtitle {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: v.$fs-200;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$sp-4;
+  align-items: start;
+
+  @include m.from(v.$bp-lg) {
+    grid-template-columns: 1fr 1.2fr 1fr;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-4;
+}
+
+.panel {
+  @include m.card-surface;
+  padding: v.$sp-4;
+}
+
+.panelTitle {
+  font-size: v.$fs-200;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: v.$sp-3;
+  display: flex;
+  align-items: center;
+  gap: v.$sp-2;
+
+  &::before {
+    content: '';
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+}
+
+.statRow {
+  display: flex;
+  gap: v.$sp-5;
+  margin-top: v.$sp-3;
+}
+
+.statLabel {
+  display: block;
+  font-size: v.$fs-100;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.statValue {
+  font-family: v.$font-display;
+  font-size: v.$fs-400;
+}
+
+.weatherRow {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-3;
+}
+
+.weatherIcon {
+  font-size: 2rem;
+}
+
+.weatherTemp {
+  display: block;
+  font-family: v.$font-display;
+  font-size: v.$fs-400;
+}
+
+.weatherDesc {
+  color: var(--text-muted);
+  font-size: v.$fs-200;
+}
+
+.liveTag {
+  margin-left: auto;
+  font-size: v.$fs-100;
+  text-transform: uppercase;
+  color: v.$emerald;
+  border: 1px solid v.$emerald;
+  border-radius: 999px;
+  padding: 2px v.$sp-2;
+}
+
+.loadingText {
+  color: var(--text-muted);
+}
+
+.centerPanel {
+  @include m.card-surface;
+  padding: v.$sp-7 v.$sp-5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$sp-4;
+  text-align: center;
+}
+
+.finishLabel {
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: v.$fs-200;
+  color: var(--text-muted);
+}
+
+.controls {
+  display: flex;
+  gap: v.$sp-3;
+  margin-top: v.$sp-2;
+}
+
+.primaryControl,
+.secondaryControl {
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: v.$fs-200;
+  font-weight: 600;
+  padding: v.$sp-2 v.$sp-5;
+  border-radius: v.$radius-sm;
+  @include m.focus-ring;
+}
+
+.primaryControl {
+  background: #fff;
+  color: v.$ink;
+  border: none;
+}
+
+[data-theme='light'] .primaryControl {
+  background: var(--accent);
+  color: #fff;
+}
+
+.secondaryControl {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+
+  &:hover {
+    border-color: var(--accent);
+  }
+}
+
+.driverHeader {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-3;
+  margin-bottom: v.$sp-3;
+}
+
+.driverStripe {
+  width: 4px;
+  align-self: stretch;
+  min-height: 36px;
+  background: var(--team-color, var(--accent));
+  border-radius: 2px;
+}
+
+.driverName {
+  display: block;
+  font-family: v.$font-display;
+  font-size: v.$fs-300;
+}
+
+.driverTeam {
+  color: var(--text-muted);
+  font-size: v.$fs-200;
+}
+
+.driverStats {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-2;
+  margin: 0;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: v.$sp-2;
+  }
+
+  dt {
+    color: var(--text-muted);
+    font-size: v.$fs-200;
+  }
+
+  dd {
+    margin: 0;
+    font-family: v.$font-display;
+    font-weight: 700;
+  }
+}
+
+.factText {
+  color: var(--text-muted);
+  font-size: v.$fs-200;
+  line-height: 1.6;
+}
+
+.liveStatus {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-2;
+  color: v.$emerald;
+  font-weight: 600;
+  font-size: v.$fs-200;
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: v.$emerald;
+  box-shadow: 0 0 6px v.$emerald;
+}

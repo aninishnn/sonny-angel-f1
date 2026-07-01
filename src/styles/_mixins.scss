@@ -1,0 +1,37 @@
+@use 'variables' as v;
+@use 'sass:math';
+
+@mixin from($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 3px solid v.$pit-yellow;
+    outline-offset: 3px;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin card-surface {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-card;
+}
+
+@mixin checker-strip($size: 10px) {
+  background-image: linear-gradient(45deg, var(--checker-a) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--checker-a) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--checker-a) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--checker-a) 75%);
+  background-size: $size $size;
+  background-position: 0 0, 0 math.div($size, 2), math.div($size, 2) (-1 * math.div($size, 2)), (-1 * math.div($size, 2)) 0;
+}

@@ -1,0 +1,35 @@
+@use '../styles/variables' as v;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$sp-1;
+}
+
+.caption {
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: v.$fs-200;
+  color: var(--text-muted);
+}
+
+.clock {
+  font-family: v.$font-display;
+  font-size: v.$fs-700;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.critical {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .clock {
+    font-size: v.$fs-600;
+  }
+}

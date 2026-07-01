@@ -1,0 +1,102 @@
+@use '../styles/variables' as v;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: v.$radius-md;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-raised);
+  overflow: hidden;
+  text-align: center;
+}
+
+.banner {
+  padding: v.$sp-2 v.$sp-2;
+  font-family: v.$font-display;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: v.$ink;
+}
+
+.code {
+  font-size: v.$fs-200;
+}
+
+.common .banner {
+  background: var(--chrome, #c8cdd3);
+}
+
+.rare .banner {
+  background: #6f9bff;
+}
+
+.epic .banner {
+  background: #b98bf0;
+}
+
+.secret .banner {
+  background: var(--accent-secondary);
+}
+
+.locked .banner {
+  background: var(--locked-fill);
+  color: var(--text-muted);
+}
+
+.artWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+  padding: v.$sp-2;
+}
+
+.lockIcon {
+  color: var(--text-muted);
+  font-size: 1.4rem;
+}
+
+.locked {
+  opacity: 0.75;
+}
+
+.name {
+  font-size: v.$fs-100;
+  font-weight: 600;
+  padding: 0 v.$sp-2 v.$sp-2;
+  min-height: 2em;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border-subtle);
+
+  div {
+    padding: v.$sp-1;
+    border-left: 1px solid var(--border-subtle);
+
+    &:first-child {
+      border-left: none;
+    }
+  }
+}
+
+.footerLabel {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.footerValue {
+  display: block;
+  font-size: v.$fs-100;
+  font-family: v.$font-display;
+}
+
+.lockedTag {
+  color: var(--text-muted);
+}

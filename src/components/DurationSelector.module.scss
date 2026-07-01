@@ -1,0 +1,46 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.wrapper {
+  display: flex;
+  gap: v.$sp-2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chip {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-radius: v.$radius-sm;
+  padding: v.$sp-2 v.$sp-4;
+  font-family: v.$font-display;
+  font-weight: 700;
+  font-size: v.$fs-400;
+
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: var(--accent-secondary);
+  }
+}
+
+.unit {
+  font-size: v.$fs-100;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.selected {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, var(--surface-raised));
+  color: var(--accent);
+
+  .unit {
+    color: var(--accent);
+  }
+}

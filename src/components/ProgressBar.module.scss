@@ -1,0 +1,49 @@
+@use '../styles/variables' as v;
+
+.wrapper {
+  width: 100%;
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  font-size: v.$fs-200;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: v.$sp-2;
+}
+
+.track {
+  position: relative;
+  height: 14px;
+  border-radius: v.$radius-sm;
+  background: var(--locked-fill);
+  border: 1px solid var(--border-subtle);
+  overflow: visible;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  border-radius: v.$radius-sm;
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+}
+
+.marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.flag {
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+}

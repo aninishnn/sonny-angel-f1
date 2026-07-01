@@ -1,0 +1,113 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.standings {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-5;
+}
+
+.title {
+  font-size: v.$fs-600;
+  margin-bottom: v.$sp-2;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  max-width: 50ch;
+}
+
+.loading {
+  color: var(--text-muted);
+}
+
+.tableWrap {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-subtle);
+  border-radius: v.$radius-md;
+  overflow: hidden;
+}
+
+.headerRow,
+.row {
+  display: grid;
+  grid-template-columns: 48px 2fr 1.4fr 70px 70px;
+  align-items: center;
+  gap: v.$sp-2;
+  padding: v.$sp-2 v.$sp-3;
+
+  @include m.from(v.$bp-md) {
+    padding: v.$sp-3 v.$sp-4;
+  }
+}
+
+.headerRow {
+  background: var(--surface-raised);
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: v.$fs-100;
+  color: var(--text-muted);
+}
+
+.row {
+  border-top: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--team-color);
+  background: var(--surface-raised);
+}
+
+.colPos {
+  font-family: v.$font-display;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.driverCell {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-2;
+
+  strong {
+    display: block;
+    font-size: v.$fs-200;
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--locked-fill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.code {
+  display: block;
+  font-size: v.$fs-100;
+  color: var(--text-muted);
+}
+
+.colTeam {
+  color: var(--text-muted);
+  font-size: v.$fs-200;
+  display: none;
+
+  @include m.from(v.$bp-sm) {
+    display: block;
+  }
+}
+
+.colNum {
+  font-family: v.$font-display;
+  font-weight: 700;
+  text-align: right;
+}
+
+.points {
+  color: var(--accent);
+}

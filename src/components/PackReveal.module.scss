@@ -1,0 +1,153 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  perspective: 800px;
+}
+
+.pack {
+  position: relative;
+  width: 180px;
+  height: 230px;
+  background: linear-gradient(160deg, #ffffff, #f1ede3);
+  border-radius: v.$radius-md;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$sp-2;
+  overflow: hidden;
+  border: none;
+
+  @include m.focus-ring;
+}
+
+.packStripe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 28px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--accent-tertiary), transparent);
+  opacity: 0.5;
+}
+
+.packTitle {
+  font-family: v.$font-display;
+  font-weight: 700;
+  font-size: v.$fs-400;
+  color: v.$ink;
+  z-index: 1;
+}
+
+.packEdition {
+  font-size: v.$fs-100;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6b7178;
+  z-index: 1;
+}
+
+.tapHint {
+  position: absolute;
+  bottom: v.$sp-3;
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: v.$fs-100;
+  color: #6b7178;
+  z-index: 1;
+}
+
+.reveal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$sp-2;
+  text-align: center;
+}
+
+.glow {
+  position: absolute;
+  top: -20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--glow-color) 45%, transparent), transparent 70%);
+  z-index: -1;
+}
+
+.unlockTitle {
+  font-size: v.$fs-200;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.figureArt {
+  margin: v.$sp-2 0;
+}
+
+.unlockName {
+  font-family: v.$font-display;
+  font-weight: 700;
+  font-size: v.$fs-500;
+}
+
+.rarityBadge {
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  font-size: v.$fs-100;
+  letter-spacing: 0.08em;
+  padding: 3px v.$sp-3;
+  border-radius: 999px;
+}
+
+.common {
+  background: var(--locked-fill);
+  color: var(--text-muted);
+}
+
+.rare {
+  background: rgba(28, 79, 214, 0.18);
+  color: #6f9bff;
+}
+
+.epic {
+  background: rgba(106, 43, 182, 0.18);
+  color: #b98bf0;
+}
+
+.secret {
+  background: rgba(255, 201, 60, 0.18);
+  color: var(--accent-secondary);
+}
+
+.duplicateNote {
+  font-size: v.$fs-200;
+  color: var(--accent-secondary);
+  max-width: 28ch;
+}
+
+.confirmButton {
+  margin-top: v.$sp-2;
+  font-family: v.$font-display;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: v.$fs-200;
+  padding: v.$sp-2 v.$sp-5;
+  border-radius: v.$radius-sm;
+  border: none;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent), var(--accent-tertiary));
+
+  @include m.focus-ring;
+}

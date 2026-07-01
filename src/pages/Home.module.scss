@@ -1,0 +1,91 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-6;
+}
+
+.title {
+  font-size: v.$fs-600;
+  margin-bottom: v.$sp-2;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: v.$fs-300;
+  max-width: 46ch;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$sp-6;
+
+  @include m.from(v.$bp-lg) {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.sectionTitle {
+  font-size: v.$fs-400;
+  margin-bottom: v.$sp-3;
+  color: var(--text-primary);
+}
+
+.loading {
+  color: var(--text-muted);
+}
+
+.driverGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: v.$sp-3;
+}
+
+.startZone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$sp-3;
+  padding: v.$sp-6 0 v.$sp-4;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.durationBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$sp-2;
+}
+
+.durationLabel {
+  font-family: v.$font-display;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: v.$fs-200;
+  color: var(--text-muted);
+}
+
+.error {
+  color: var(--accent);
+  font-size: v.$fs-200;
+  font-weight: 600;
+}
+
+.startButton {
+  font-family: v.$font-display;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: v.$fs-400;
+  padding: v.$sp-3 v.$sp-7;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: v.$radius-md;
+  box-shadow: 0 10px 24px rgba(232, 51, 61, 0.35);
+
+  @include m.focus-ring;
+}

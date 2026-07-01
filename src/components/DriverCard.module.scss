@@ -1,0 +1,91 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  text-align: left;
+  width: 100%;
+  min-width: 180px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: v.$radius-md;
+  padding: 0;
+  overflow: hidden;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: var(--team-color);
+  }
+}
+
+.avatar {
+  flex-shrink: 0;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--locked-fill);
+}
+
+.selected {
+  border-color: var(--team-color);
+  box-shadow: 0 0 0 2px var(--team-color);
+}
+
+.stripe {
+  width: 8px;
+  flex-shrink: 0;
+  background: var(--team-color);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-1;
+  padding: v.$sp-3 v.$sp-4;
+  flex: 1;
+}
+
+.code {
+  font-family: v.$font-display;
+  font-weight: 700;
+  font-size: v.$fs-400;
+  letter-spacing: 0.05em;
+  color: var(--team-color);
+}
+
+.name {
+  font-weight: 600;
+  font-size: v.$fs-300;
+}
+
+.team {
+  font-size: v.$fs-200;
+  color: var(--text-muted);
+}
+
+.nationality {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-1;
+  font-size: v.$fs-100;
+  color: var(--text-muted);
+  margin-top: v.$sp-1;
+
+  svg {
+    color: var(--team-color);
+  }
+}
+
+.checkBadge {
+  position: absolute;
+  top: v.$sp-2;
+  right: v.$sp-2;
+  color: var(--team-color);
+  font-size: 1.1rem;
+}

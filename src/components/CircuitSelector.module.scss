@@ -1,0 +1,65 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-2;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-3;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: v.$radius-sm;
+  padding: v.$sp-3;
+  color: var(--text-primary);
+  text-align: left;
+  transition: border-color 0.2s ease;
+
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: var(--accent-secondary);
+  }
+}
+
+.selected {
+  border-color: var(--accent-secondary);
+  background: color-mix(in srgb, var(--accent-secondary) 12%, var(--surface-raised));
+}
+
+.glyph {
+  width: 40px;
+  height: 20px;
+  color: var(--accent-secondary);
+  flex-shrink: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.name {
+  font-weight: 600;
+  font-size: v.$fs-300;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-1;
+  font-size: v.$fs-100;
+  color: var(--text-muted);
+}
+
+.check {
+  color: var(--accent-secondary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}

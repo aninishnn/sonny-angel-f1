@@ -1,0 +1,153 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+:root,
+[data-theme='dark'] {
+  --bg: #{v.$asphalt};
+  --surface-raised: #{v.$asphalt-raised};
+  --text-primary: #{v.$cream};
+  --text-muted: #{v.$chrome-soft};
+  --border-subtle: rgba(200, 205, 211, 0.12);
+  --accent: #{v.$racing-red};
+  --accent-dim: #{v.$racing-red-dim};
+  --accent-secondary: #{v.$pit-yellow};
+  --accent-tertiary: #{v.$blush};
+  --checker-a: rgba(255, 255, 255, 0.06);
+  --locked-fill: #1d2229;
+}
+
+[data-theme='light'] {
+  --bg: #{v.$cream};
+  --surface-raised: #{v.$cream-raised};
+  --text-primary: #{v.$ink};
+  --text-muted: #6b7178;
+  --border-subtle: rgba(20, 23, 28, 0.1);
+  --accent: #{v.$racing-red};
+  --accent-dim: #{v.$racing-red-dim};
+  --accent-secondary: #e6ad1f;
+  --accent-tertiary: #{v.$blush-deep};
+  --checker-a: rgba(20, 23, 28, 0.05);
+  --locked-fill: #e7e2d6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: v.$font-body;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: v.$font-display;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 v.$sp-3;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  @include m.focus-ring;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: v.$bp-xxl;
+  margin: 0 auto;
+  padding: v.$sp-5 v.$sp-4 v.$sp-7;
+
+  @include m.from(v.$bp-md) {
+    padding: v.$sp-6 v.$sp-6 v.$sp-8;
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: v.$sp-4 0;
+  margin-top: auto; 
+  background: rgba(10, 10, 15, 0.6);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  color: var(--text-muted);
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    var(--accent-secondary),
+    transparent
+  );
+  opacity: 0.8;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: v.$sp-2;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.footer-inner strong {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.25);
+}
+
+.dot {
+  color: var(--accent);
+}
